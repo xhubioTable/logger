@@ -1,18 +1,21 @@
 {
-  "name": "@xhubioTable/logger",
+  "name": "@xhubiotable/logger",
   "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "decision-table"
   ],
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xhubioTable/logger.git"
+    "url": "https://github.com/xhubiotable/logger.git"
   },
   "bugs": {
-    "url": "https://github.com/xhubioTable/logger/issues"
+    "url": "https://github.com/xhubiotable/logger/issues"
   },
-  "homepage": "https://github.com/xhubioTable/logger#readme",
+  "homepage": "https://github.com/xhubiotable/logger#readme",
   "scripts": {
     "build": "npm run src_format && npm run src_lint && babel src -d lib",
     "src_lint": "eslint src tests",
