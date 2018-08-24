@@ -10,12 +10,12 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xhubiotable/logger.git"
+    "url": "https://github.com/xhubioTable/logger.git"
   },
   "bugs": {
-    "url": "https://github.com/xhubiotable/logger/issues"
+    "url": "https://github.com/xhubioTable/logger/issues"
   },
-  "homepage": "https://github.com/xhubiotable/logger#readme",
+  "homepage": "https://github.com/xhubioTable/logger#readme",
   "scripts": {
     "build": "npm run src_format && npm run src_lint && babel src -d lib",
     "src_lint": "eslint src tests",
