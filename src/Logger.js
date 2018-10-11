@@ -23,7 +23,7 @@ function getTime() {
  * This logger is mainly used for debugging and development
  * @class
  */
-class Logger {
+export class Logger {
   constructor() {
     this.entries = {
       info: [],
