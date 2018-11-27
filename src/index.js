@@ -1,4 +1,12 @@
-import getLoggerMemory from './Logger'
-import {Logger} from './Logger'
+import LoggerInterface from './LoggerInterface'
+import LoggerMemory from './LoggerMemory'
 
-export { getLoggerMemory, Logger}
+export { LoggerInterface, LoggerMemory }
+
+let loggerMemory
+export function getLoggerMemory() {
+  if (loggerMemory === undefined) {
+    loggerMemory = new LoggerMemory()
+  }
+  return loggerMemory
+}

@@ -1,17 +1,16 @@
 'use strict'
 
-import { getLoggerMemory } from '../lib/index'
+import { LoggerMemory } from '../lib/index'
 
 test('Get instance', () => {
-  const logger = getLoggerMemory()
+  const logger = new LoggerMemory()
   expect(logger !== undefined).toBeTruthy()
 })
 
 test('Log error object', async done => {
-  const logger = getLoggerMemory()
+  const logger = new LoggerMemory()
   // Cleanup old log entries
   logger.clear()
-
   await logger.error({ name: 'gumbo' })
 
   const errors = logger.entries.error
@@ -21,10 +20,20 @@ test('Log error object', async done => {
   done()
 })
 
-test('Log warning string', async done => {
-  const logger = getLoggerMemory()
+test('Log warning string when level is on error', async done => {
+  const logger = new LoggerMemory()
   // Cleanup old log entries
   logger.clear()
+  await logger.warning('Hey you, whats up')
+  expect(logger.entries.warning.length).toBe(0)
+  done()
+})
+
+test('Log warning string when level is on warning', async done => {
+  const logger = new LoggerMemory()
+  // Cleanup old log entries
+  logger.clear()
+  logger.level = 'warning'
 
   await logger.warning('Hey you, whats up')
 

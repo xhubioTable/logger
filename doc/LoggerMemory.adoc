@@ -1,0 +1,21 @@
+== LoggerMemory
+This logger is mainly used for unit testing. It stores
+all the logs in array by level type. So you can get the Logs
+after the test and proof that the right logs where generated.
+
+=== Properties
+
+writeConsole::
+  When set to true, all the logs are also written to the console
+
+=== Functions
+All the functions from the LoggerInterface plus these functions.
+
+[source, js]
+----
+/**
+ * Clears all the existing log entries
+ * Placeholder for the implementing loggers.
+ */
+async clear() {}
+----
