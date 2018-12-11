@@ -9,10 +9,8 @@ import LoggerInterface from './LoggerInterface'
 export default class LoggerMemory extends LoggerInterface {
   constructor() {
     super()
-
     // default is not to write to console
     this.writeConsole = false
-
     // initializes the arrays
     this.clear()
   }
