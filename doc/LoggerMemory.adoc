@@ -19,3 +19,18 @@ All the functions from the LoggerInterface plus these functions.
  */
 async clear() {}
 ----
+
+=== Retrieve the logs
+To get all the logs read the property 'logger.entries'. This returns an hash where for each logLevel
+the logs are stored.
+
+[source, js]
+----
+entries: {
+  debug: [],
+  info: [],
+  warning: [],
+  error: [],
+  fatal: [],
+}
+----
