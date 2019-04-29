@@ -3,14 +3,16 @@ import LoggerInterface from './LoggerInterface'
 /**
  * Implements a default logger. It will store all the logEntries in Memory.
  * if 'writeConsole' is set  to true, it will also output the logs to the console.
- * This logger is mainly used for debugging and development
- * @class
+ * This logger is mainly used for debugging and development.
+ * @extends LoggerInterface
  */
 export default class LoggerMemory extends LoggerInterface {
   constructor() {
     super()
-    // default is not to write to console
+
+    /** {boolean} Defines if the log entry should also be loged to the console. Default is not to write to console */
     this.writeConsole = false
+
     // initializes the arrays
     this.clear()
   }

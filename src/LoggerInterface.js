@@ -12,10 +12,8 @@ const DEFAULT_LEVEL = 3
 const MAX_LEVEL = 4
 
 /**
- * Implements a default logger. It will store all the logEntries in Memory.
- * if 'writeConsole' is set  to true, it will also output the logs to the console.
- * This logger is mainly used for debugging and development
- * @class
+ * Defines the interface of a logger used by all the modules.
+ *
  */
 export default class LoggerInterface {
   constructor() {
@@ -39,7 +37,7 @@ export default class LoggerInterface {
     }
   }
 
-  /**
+  /*
    * Returns the logLevel as a string
    *
    * @return level {string} The logLevel
@@ -82,7 +80,7 @@ export default class LoggerInterface {
     }
 
     if (this._getLevelNumber(level) >= this._level) {
-      entry.time = this.getTime()
+      entry.time = this._getTime()
       return this._writeLog(level, entry)
     }
   }
@@ -99,27 +97,54 @@ export default class LoggerInterface {
   }
 
   /**
-   * Logs the given message
+   * Logs the given message with the level 'debug'
    * @param message {string/object} The message or data to log
    * @return promise {Promise} A promise when the log is written
    */
   async debug(message) {
     return this._log('debug', message)
   }
+
+  /**
+   * Logs the given message with the level 'info'
+   * @param message {string/object} The message or data to log
+   * @return promise {Promise} A promise when the log is written
+   */
   async info(message) {
     return this._log('info', message)
   }
+
+  /**
+   * Logs the given message with the level 'warning'
+   * @param message {string/object} The message or data to log
+   * @return promise {Promise} A promise when the log is written
+   */
   async warning(message) {
     return this._log('warning', message)
   }
+
+  /**
+   * Logs the given message with the level 'error'
+   * @param message {string/object} The message or data to log
+   * @return promise {Promise} A promise when the log is written
+   */
   async error(message) {
     return this._log('error', message)
   }
+
+  /**
+   * Logs the given message with the level 'fatal'
+   * @param message {string/object} The message or data to log
+   * @return promise {Promise} A promise when the log is written
+   */
   async fatal(message) {
     return this._log('fatal', message)
   }
 
-  getTime() {
+  /**
+   * Returns the current time in the format used by this logger
+   */
+  _getTime() {
     function fill(val) {
       if (val < 10) {
         return '0' + val

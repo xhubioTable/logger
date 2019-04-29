@@ -22,3 +22,7 @@ error(arg)
 // Logs fatal messages
 fatal(arg)
 ----
+
+include::./LoggerInterface.adoc[leveloffset=+1]
+
+include::./LoggerMemory.adoc[leveloffset=+1]
