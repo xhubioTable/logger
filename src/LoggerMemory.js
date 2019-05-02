@@ -44,7 +44,7 @@ export default class LoggerMemory extends LoggerInterface {
     if (this.writeConsole) {
       // eslint-disable-next-line no-console
       console.log(
-        `${this.getTime()} ${level.toUpperCase()}: ${JSON.stringify(
+        `${this._getTime()} ${level.toUpperCase()}: ${JSON.stringify(
           entry,
           null,
           2
