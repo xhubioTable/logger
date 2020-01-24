@@ -59,10 +59,37 @@ export default class LoggerInterface {
    * @return num {number} The loglevel as a number
    */
   _getLevelNumber(level = DEFAULT_LEVEL) {
+    if (
+      typeof level === 'number' &&
+      LOG_LEVEL_NUM_TO_NAME[level] !== undefined
+    ) {
+      return level
+    }
     if (LOG_LEVEL_NAME_TO_NUM[level] !== undefined) {
       return LOG_LEVEL_NAME_TO_NUM[level]
     }
     return DEFAULT_LEVEL
+  }
+
+  /**
+   * returns the logLevel as a string
+   * @param level {string} The loglevel as a number or string
+   *
+   * @return level {string} The loglevel as a string
+   */
+  _getLevelName(level = DEFAULT_LEVEL) {
+    if (
+      typeof level === 'string' &&
+      LOG_LEVEL_NAME_TO_NUM[level] !== undefined
+    ) {
+      return level
+    }
+
+    if (LOG_LEVEL_NUM_TO_NAME[level] !== undefined) {
+      return LOG_LEVEL_NUM_TO_NAME[level]
+    }
+
+    return LOG_LEVEL_NUM_TO_NAME[DEFAULT_LEVEL]
   }
 
   /**
