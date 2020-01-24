@@ -15,12 +15,7 @@ notifications:
   - torstenlink@gmx.de
 before_install:
 - npm i -g npm@latest
-before_script:
-- npm prune
-- npm install -g codecov
 script:
-- npm run test
-after_script:
-- codecov
+- yarn test
 after_success:
 - npx semantic-release

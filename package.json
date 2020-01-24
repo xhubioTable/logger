@@ -1,6 +1,6 @@
 {
   "name": "@xhubiotable/logger",
-  "version": "0.0.1",
+  "version": "0.0.0-semantic-release",
   "publishConfig": {
     "access": "public"
   },
@@ -21,16 +21,16 @@
   },
   "homepage": "https://github.com/xhubioTable/logger#readme",
   "scripts": {
-    "build": "npm run src_format && npm run src_lint && babel src -d lib",
+    "build": "yarn src_format && yarn src_lint && babel src -d lib",
     "src_lint": "eslint src tests",
     "src_format": "prettier --no-semi --single-quote --trailing-comma es5 --write \"{src,tests}/**/*.js\"",
     "test_only": "jest",
-    "test": "npm run build && jest -c jest.config.json",
-    "debug": "npm run build && node --inspect-brk ./node_modules/.bin/jest -i --config=./jest.config.json",
+    "test": "yarn build && jest -c jest.config.json",
+    "debug": "yarn build && node --inspect-brk ./node_modules/.bin/jest -i --config=./jest.config.json",
     "doc_html": "npx jsdoc -r -c jsdoc.config.json src",
     "doc_md": "npx jsdoc2md -c jsdoc.config.json src/*.js > doc/api.md ",
-    "doc": "npm run doc_html && npm run doc_md",
-    "prepare": "npm run build"
+    "doc": "yarn doc_html && yarn doc_md",
+    "prepare": "yarn build"
   },
   "contributors": [
     {
