@@ -1,6 +1,6 @@
 'use strict'
 
-import { LoggerMemory } from '../lib/index'
+import { LoggerMemory } from '../src/index'
 
 test('Get instance', () => {
   const logger = new LoggerMemory()
