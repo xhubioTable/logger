@@ -7,11 +7,14 @@ import LoggerInterface from './LoggerInterface'
  * @extends LoggerInterface
  */
 export default class LoggerMemory extends LoggerInterface {
-  constructor() {
+  constructor(opts = {}) {
     super()
 
     /** {boolean} Defines if the log entry should also be loged to the console. Default is not to write to console */
     this.writeConsole = false
+    if (opts.writeConsole !== undefined) {
+      this.writeConsole = opts.writeConsole
+    }
 
     // initializes the arrays
     this.clear()
