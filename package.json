@@ -67,5 +67,10 @@
   },
   "dependencies": {
     "@babel/runtime": "7.12.1"
+  },
+  "template": {
+    "usedBy": [
+      "xhubioTable/file-processor"
+    ]
   }
 }
