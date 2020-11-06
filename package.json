@@ -70,7 +70,7 @@
   },
   "template": {
     "usedBy": [
-      "xhubioTable/data-generator"
+      "xhubioTable/file-processor"
     ]
   }
 }
