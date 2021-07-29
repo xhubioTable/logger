@@ -7,7 +7,7 @@ test('Get instance', () => {
   expect(logger !== undefined).toBeTruthy()
 })
 
-test('Log error object', async (done) => {
+test('Log error object', async () => {
   const logger = new LoggerMemory()
   // Cleanup old log entries
   logger.clear()
@@ -17,19 +17,17 @@ test('Log error object', async (done) => {
   delete errors[0].time
 
   expect(errors).toEqual([{ name: 'gumbo', level: 'error' }])
-  done()
 })
 
-test('Log warning string when level is on error', async (done) => {
+test('Log warning string when level is on error', async () => {
   const logger = new LoggerMemory()
   // Cleanup old log entries
   logger.clear()
   await logger.warning('Hey you, whats up')
   expect(logger.entries.warning.length).toBe(0)
-  done()
 })
 
-test('Log warning string when level is on warning', async (done) => {
+test('Log warning string when level is on warning', async () => {
   const logger = new LoggerMemory()
   // Cleanup old log entries
   logger.clear()
@@ -41,5 +39,4 @@ test('Log warning string when level is on warning', async (done) => {
   delete warn[0].time
 
   expect(warn).toEqual([{ message: 'Hey you, whats up', level: 'warning' }])
-  done()
 })
