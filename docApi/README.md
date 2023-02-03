@@ -1,4 +1,4 @@
-@xhubiotable/logger / [Exports](docApi/modules.md)
+@xhubiotable/logger / [Exports](modules.md)
 
 # Logger
 
