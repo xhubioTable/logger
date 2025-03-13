@@ -1,5 +1,3 @@
-'use strict'
-
 import { LoggerMemory } from '../src/index'
 
 test('Get instance', () => {
@@ -7,36 +5,40 @@ test('Get instance', () => {
   expect(logger !== undefined).toBeTruthy()
 })
 
-test('Log error object', async () => {
+test('Log error object', () => {
   const logger = new LoggerMemory()
   // Cleanup old log entries
   logger.clear()
-  await logger.error({ name: 'gumbo' })
+  logger.error({ name: 'gumbo' })
 
   const errors = logger.entries.error
-  delete errors[0].time
+  errors[0].time = 'dummy'
 
-  expect(errors).toEqual([{ name: 'gumbo', level: 'error' }])
+  expect(errors).toEqual([
+    { message: { name: 'gumbo' }, level: 'error', time: 'dummy' }
+  ])
 })
 
-test('Log warning string when level is on error', async () => {
+test('Log warning string when level is on error', () => {
   const logger = new LoggerMemory()
   // Cleanup old log entries
   logger.clear()
-  await logger.warning('Hey you, whats up')
+  logger.warning('Hey you, whats up')
   expect(logger.entries.warning.length).toBe(0)
 })
 
-test('Log warning string when level is on warning', async () => {
+test('Log warning string when level is on warning', () => {
   const logger = new LoggerMemory()
   // Cleanup old log entries
   logger.clear()
   logger.level = 'warning'
 
-  await logger.warning('Hey you, whats up')
+  logger.warning('Hey you, whats up')
 
   const warn = logger.entries.warning
-  delete warn[0].time
+  warn[0].time = 'dummy'
 
-  expect(warn).toEqual([{ message: 'Hey you, whats up', level: 'warning' }])
+  expect(warn).toEqual([
+    { message: 'Hey you, whats up', level: 'warning', time: 'dummy' }
+  ])
 })
