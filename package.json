@@ -1,6 +1,6 @@
 {
-  "name": "@tlink/logger",
-  "version": "1.0.2",
+  "name": "@xhubiotable/logger",
+  "version": "0.0.0-semantic-version",
   "publishConfig": {
     "access": "public"
   },
@@ -49,7 +49,7 @@
     "doc/**/*.*"
   ],
   "license": "ISC",
-  "devDependencies": {
-    "@tlink/build-base": "1.0.4"
+  "dependencies": {
+    "@xhubiotable/build-base": "1.0.2"
   }
 }
